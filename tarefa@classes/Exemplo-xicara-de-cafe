@@ -1,0 +1,60 @@
+/**
+ * Classe que representa uma Xícara de Café do mundo real.
+ */
+public class XicaraCafe {
+    // Propriedades
+    private double capacidadeMaximaML; // Capacidade em mililitros
+    private double quantidadeAtualML; // Quantidade atual de café
+    private int temperatura; // Temperatura em graus Celsius
+    private boolean estaCheia; // Indica se está cheia
+
+    // Construtor
+    public XicaraCafe(double capacidadeMaxima) {
+        this.capacidadeMaximaML = capacidadeMaxima;
+        this.quantidadeAtualML = 0;
+        this.temperatura = 25; // Temperatura ambiente inicial
+        this.estaCheia = false;
+    }
+
+    // Métodos da classe XicaraCafe
+    public void encher(double quantidade) {
+    if (quantidadeAtualML + quantidade <= capacidadeMaximaML) {
+        quantidadeAtualML += quantidade;
+        estaCheia = (quantidadeAtualML == capacidadeMaximaML);
+        System.out.println("Xícara preenchida com " + quantidade + "ml.");
+    } else {
+        System.out.println("Erro: A quantidade excede a capacidade!");
+    }
+}
+
+    public void beber(double quantidade) {
+    quantidadeAtualML = Math.max(0, quantidadeAtualML - quantidade);
+    estaCheia = false;
+    System.out.println("Você bebeu " + quantidade + "ml.");
+}
+
+    public void esquentar(int graus) {
+    temperatura += graus;
+    System.out.println("Temperatura aumentada para " + temperatura + "°C.");
+}
+
+    public boolean verificarVazia() {
+    return quantidadeAtualML == 0;
+}
+
+   // Getters para acesso às propriedades (opcional)
+   public double getCapacidadeMaximaML() {
+    return capacidadeMaximaML;
+}
+
+   public double getQuantidadeAtualML() {
+    return quantidadeAtualML;
+}
+
+   public int getTemperatura() {
+    return temperatura;
+}
+
+   public boolean isEstaCheia() {
+    return estaCheia;
+}
